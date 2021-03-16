@@ -1,6 +1,6 @@
 <?php 
 
-  require_once("../reusable/dbConfig.php");
+//   require_once("../reusable/dbConfig.php");
   $query =mysqli_query($connection, "SELECT * from stk_products");
   
  

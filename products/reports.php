@@ -2,7 +2,7 @@
 
 <?php function showTable(){
   
-    require("../reusable/dbConfig.php");
+    require("./reusable/dbConfig.php");
       $stmt = "SELECT inventory_id, stk_inventory.added_date, product_Name,stk_products.productId, SUM(quantity) as TotalQty FROM stk_products INNER JOIN stk_inventory ON stk_products.productId = stk_inventory.productId GROUP BY(product_Name)";
       $quantity = mysqli_query($connection,$stmt) or die("Error".mysqli_error($connection));
     
@@ -41,7 +41,7 @@
 
 <?php function showOutGoing(){
    
-    require("../reusable/dbConfig.php");
+    require("./reusable/dbConfig.php");
       $stmt = "SELECT outgoingId, stk_outgoing.added_date, product_Name,stk_products.productId, SUM(quantity) as TotalQty FROM stk_products INNER JOIN stk_outgoing ON stk_products.productId = stk_outgoing.productId GROUP BY(product_Name)";
       $quantity = mysqli_query($connection,$stmt) or die("Error".mysqli_error($connection));
     ?>

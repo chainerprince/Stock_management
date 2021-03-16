@@ -1,5 +1,5 @@
 <?php $brand = $name = $supplier = $supplier_phone = "" ?>
-<?php require_once("./addProduct.php") ?>
+<?php require_once("./products/addProduct.php") ?>
 <form action="<?=$update ? "./dashboard.php?id=$id#update" : "./dashboard.php#create"?>"  method="POST">
                
                <h4><?= $update ? "Update Product":"Create Product"; ?></h4> 
