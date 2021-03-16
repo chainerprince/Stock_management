@@ -1,0 +1,88 @@
+body{
+    background-color: #222;
+    font-family: sans-serif;
+    color: white;
+}
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+    /* color: rgb(65, 65, 158); */
+}
+.container{
+    /* display: flex;
+    justify-content: space-around; */
+    background-color: #222;
+    
+  }
+  
+.sidebar{
+    flex: 1;
+    background-color: blue;
+}
+.main{
+    /* margin-top: 4rem; */
+    padding: 4rem 0;
+    margin-left: 3.5rem; 
+    /* flex: 1; */
+    /* width: 2rem; */
+    /* margin-left: 19rem;*/
+}
+.main__cards{
+     /* background-color: blue;  */
+    /* padding: 2rem 1rem; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: .8rem;
+   
+    
+    /* margin-left: 3rem; */
+}
+.main__cards a{
+    /* margin: .5rem; */
+    width: 12rem;
+    cursor: pointer;
+    height: 5rem;
+    /* border: 1px solid blue; */
+    border-radius: 9px;
+    background-color: #222;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.all__products h4{
+    text-align: center;
+    /* color: rgb(9, 25, 250); */
+}
+
+.all__products{
+    /* margin: 2rem; */
+    width: 100%;
+   
+}
+.routable > *{
+    display: none;
+    /* background-color: blue; */
+}
+.routable > *:last-child {
+    display: block;
+     /* background-color: gray; */
+}
+.routable >:target{
+    display: grid;
+    place-items: center;
+    display: block;
+}
+
+.routable > *:target ~ *{
+    display: none;
+}
+@media screen and (max-width:768px){
+    .main{
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+label{
+   display: inline-block;
+   width: 22%;
+   
+}
+
+.lang{
+    display: flex;
+    align-items: center;
+    }
+   
+form{
+    /* background-color: rgb(251, 252, 253); */
+    
+    width: 50%;
+    padding: 40px;
+    border-radius: 10px;
+    margin: 20rem;
+    margin-top: .4rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid blue; */
+}
+input[type="password"]{
+    background-color: #333;
+    width: 75%;
+    height: 40px;
+    border: none;
+    /* filter: brightness(200%); */
+    border-radius: .3rem;
+    padding: 5px 0px 5px 10px;
+}
+.specific{
+    display: flex;
+    align-items: center;
+    width: 100%;
+   
+}
+#specific{
+    height: fit-content;
+    padding: 1rem;
+    background-color: #111;
+}
+input[type="text"],select{
+    /* background-color: blue; */
+    background-color: #333;
+    width: 75%;
+    height: 40px;
+    border: none;
+    /* filter: brightness(200%); */
+    border-radius: .3rem;
+    padding: 5px 0px 5px 10px;
+}
+/* select{
+    width: 75%;
+    height: 30px;
+    border-radius: .3rem;
+    padding: 5px 0px 5px 10px;
+} */
+form div{
+    margin: .3rem;
+    vertical-align: middle;
+}
+/* textarea{
+    width: 75%;
+    height: 50px;
+} */
+button{
+    cursor: pointer;
+    width: 150px;
+    height: 2.5rem;
+    border: none;
+   color: white;
+   font-size: 1.5rem;
+   border-radius: .1rem;
+    /* background-color: rgb(7, 8, 92); */
+    background-color: #222;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+}
+header{
+   background-color: #333;
+   height: 4rem;
+}
+h4{
+   text-align: center;
+  
+}
+h2{
+  color: white;
+}
+
+@media screen and (max-width: 768px){
+form{
+    padding: 0;
+    width: 100%;
+    margin: 0;
+}
+label{
+    display: block;
+    width: 100%;
+}
+
+input[type="text"],select,input[type="password"]{
+      width: 100%;
+  }
+  .gender{
+      display: flex;
+  }
+}
+
+/* *{
+    list-style-type: none;
+}
+
+form{
+    background-color: lightblue;
+    height: 17rem;
+    width: 30rem;
+   
+}
+.lang{
+    display: flex;
+}
+form li{
+    align-items: center;
+    display: flex;
+}
+
+form input{
+    margin: .3rem;
+    height: 2rem;
+    width: 15rem;
+    margin-left: 3rem;
+}
+@media only screen and(max-width:798px){
+    form{
+         display: flex;
+   
+    align-items: center;
+   flex-wrap: wrap;
+        width: 100%;
+    }
+    form li{
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    } */
