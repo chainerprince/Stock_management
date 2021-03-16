@@ -7,6 +7,7 @@
     <title>Php project </title>
 </head>
 <body>
+   <?php require("./products/dashboard.php") ?>
     <h1>Hello everyone this is my php project on heroku</h1>
 </body>
 </html>
