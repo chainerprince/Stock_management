@@ -70,7 +70,7 @@
           <?php 
           if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $data = "SELECT * FROM stk_outgoing WHERE outgoingId=$id";
+            $data = "SELECT * FROM stk_products WHERE productId=$id";
             $query = mysqli_query($connection,$data);
             $row = mysqli_fetch_array($query);
            

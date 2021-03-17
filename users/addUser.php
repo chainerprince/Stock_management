@@ -16,7 +16,7 @@
         $email = $_POST['email'];
         $nationality = $_POST['nationality'];
         $gender = $_POST['gender'];
-        if (!preg_match ("/^[0-9]*$/", $telephone) ) {  
+        if (!preg_match ("/^[+][0-9]*$/", $telephone) ) {  
             print "<span style='color:red;'>We only accept numeric characters for numbers</span>";
         } else{
             $query = "INSERT INTO stk_users
