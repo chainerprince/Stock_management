@@ -39,7 +39,7 @@
             <td data-label="Nationality"><?=$row["country_name"] ?></td>
             <td data-label="Username"><?=$row["username"] ?></td>
             <td data-label="Email"><?=$row["email"] ?></td>
-            <td data-label="Date"><?=$row["added_time"] ?></td>
+            <td data-label="Date"><?=substr($row["added_time"],0,10) ?></td>
             <td data-label="Update">
                 <a href="./dashboard.php?id=<?=$row['userId'] ?>#update">Update</a>
                 <?php 

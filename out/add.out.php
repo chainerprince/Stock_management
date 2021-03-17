@@ -20,4 +20,7 @@ if(mysqli_num_rows($idQry) > 1){
 }else{
     die("<h1 style=' color:red;'> The product doesn't exist " .mysqli_error($connection)  ."<h1>");
 }
+
+
 ?>
+

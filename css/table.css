@@ -56,11 +56,12 @@ table tr:nth-child(odd):not(tr:first-child){
     border-collapse: collapse;
     margin: 2rem;
     padding: 4rem;
+   
     font-size: .8rem;
     background-color: #222;
     width: auto;
     table-layout: fixed;
-    margin: auto;
+    margin: auto ;
   }
   
   table caption {
@@ -72,7 +73,7 @@ table tr:nth-child(odd):not(tr:first-child){
     /* background-color: #f8f8f8; */
     /* border: 1px solid #ddd; */
     border: none;
-    padding: .35em;
+    padding: .30em;
   }
   
   table th,
@@ -100,15 +101,6 @@ table tr:nth-child(odd):not(tr:first-child){
 
 
   }
-  
-  
-  
-  table th {
-    /* font-size: 1em; */
-    /* letter-spacing: .1em; */
-    text-transform: uppercase;
-  }
-  
   
   @media screen and (max-width: 600px) {
     table {

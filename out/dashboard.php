@@ -57,6 +57,17 @@
       <div class="create__form" id="create">
                <h5>Add Product</h5>
          <?php $update = false; require("./form.out.php") ?>
+         <h5>Available Products</h5>
+         <?php 
+ $stmt2 = "SELECT product_Name FROM stk_products";
+ 
+ $products = mysqli_query($connection,$stmt2) or die("Error. " . mysqli_error($connection));
+ echo "<table> <tr> <th> product name </th> ";
+ while($row = mysqli_fetch_assoc($products)){
+    echo "<tr> <td> ".$row['product_Name'] . "</td> </tr>";
+ }
+  echo "</table>";
+?>
          <?php 
           if(isset($_POST['submit'])){
               require_once("./add.out.php");
