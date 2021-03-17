@@ -28,7 +28,7 @@ while($row = mysqli_fetch_assoc($query) ){?>
            <td data-label="ProductId"><?=$row['productId']?></td>
            <td data-label="Qty"><?=$row['quantity']?></td>
            <td data-label="Date"><?=$row['added_date']?></td>
-           <td data-label="Update"><a href="./dashboard.php?id=<?=$row['outgoingId'] ?>#update">update</a></td>
+           <td data-label="Update"><a href="./dashboard.php?id=<?=$row['productId'] ?>#update">update</a></td>
            <td data-label="Delete"><a href="./dashboard.php?deleteId=<?=$row['outgoingId'] ?>#deletes">Delete</a></td>
            
        </tr>

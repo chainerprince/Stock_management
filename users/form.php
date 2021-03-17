@@ -1,4 +1,4 @@
-<?php $brand = $name = $supplier = $supplier_phone = "" ?>
+<?php $username = $lname = $fname = $telephone = $email = $password = "" ?>
 <style>
 <?php include  "./join.css"; ?>
 </style>
@@ -10,44 +10,45 @@
                <div>
                 <label for="uname">Username</label>
                 <input type="text" name="uname" id="uname"
-                value="<?=$update ? $row[6] : $name ?>"
+                value="<?=$update ? $row[6] : $username ?>"
                 >
             </div>
                 <div>
                     <label for="fname">First Name</label>
                     <input type="text" name="fname" id="fname"
-                    value="<?=$update ? $row[1] : $name ?>"
+                    value="<?=$update ? $row[1] : $fname ?>"
                     >
                     
                 </div>
                <div>
                 <label for="lname">Last Name</label>
                 <input type="text" name="lname" id="lname"
-                value="<?=$update ? $row[2] : $name ?>"
+                value="<?=$update ? $row[2] : $lname ?>"
                 >
                </div>
                 <div>
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email"
-                    value="<?=$update ? $row[7] : $name ?>"
+                    value="<?=$update ? $row[7] : $email ?>"
                     >
                 </div>
                 <div>
                     <label for="pwd">Password</label>
                     <input type="password" name="pwd" id="pwd"
-                    value="<?=$update ? $row[8] : $name ?>"
+                    value="<?=$update ? $row[8] : $password ?>"
                     >
                 </div>
                 <div>
                     <label for="confirm___pwd">Password</label>
                     <input type="password" name="confirm__pwd" id="confirm__pwd"
-                    value="<?=$update ? $row[8] : $name ?>">
+                    value="<?=$update ? $row[8] : $password ?>">
                 </div>
                
                 <div>
                     <label for="tel">Telephone</label>
-                    <input type="text" name="tel" id="tel"
-                    value="<?=$update ? $row[3] : $name ?>"
+                    <input type="text" name="tel" id="tel" required 
+                     title="We only accept ten digits"
+                    value="<?=$update ? $row[3] : $telephone ?>"
                     >
                 </div>
                   

@@ -13,7 +13,7 @@
         $supplier = $_POST['supplier'];
         $supplier_phone = $_POST['supplier_phone'];
         if (!preg_match ("/^[0-9]*$/", $supplier_phone) ) {  
-            print "<span style='color:red;'>We only accept numeric characters for numbers</span>";
+            print "<span style='color:red;'>The phone number can't contain letters except + sign</span>";
         } else{
             $query = "INSERT INTO stk_products
             (product_Name,brand,supplier_phone,supplier)

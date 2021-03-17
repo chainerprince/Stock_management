@@ -39,10 +39,10 @@
                 <a href="./dashboard.php?deleteId=<?=$row['productId'] ?>#deletes">Delete</a>
             </td>
             <td data-label="add">
-                <a target="_blank" href="../inventory/dashboard.php?inveId=<?=$row['productId'] ?>#create">Add</a>
+                <a target="_blank" href="../inventory/dashboard.php?inveName=<?=$row['product_Name'] ?>#create">Add</a>
             </td>
             <td data-label="sell">
-                <a target="_blank" href="../out/dashboard.php?outId=<?=$row['productId'] ?>#create">Sell</a>
+                <a target="_blank" href="../out/dashboard.php?prodName=<?=$row['product_Name'] ?>#create">Sell</a>
             </td>
             
         </tr>

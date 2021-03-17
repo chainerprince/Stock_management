@@ -1,10 +1,10 @@
 
 <?php
 if(isset($_GET['inveId'])){
-    $id = (int)$_GET['inveId'];
+    $name = (int)$_GET['inveName'];
     $qty = "";
 }else{
- $id = "";
+ $name = "";
 }
  ?>
 
@@ -14,9 +14,9 @@ if(isset($_GET['inveId'])){
         <?php include "../css/form.css"?>
     </style>
 <div>
-    <label for="productId">ProductId</label>
-    <input type="number" name="id" id="pro_id" required   
-    value="<?=$update ? $row[2] : $id ?>"> 
+    <label for="productId">Product Name</label>
+    <input type="text" name="pro_name" id="pro_id" required   
+    value="<?=$update ? $row[1] : $name ?>"> 
  </div>
 <div>
  <label for="qty">Quantity</label>
