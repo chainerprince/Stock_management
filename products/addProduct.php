@@ -1,5 +1,5 @@
 <?php
-  require_once("../reusable/dbConfig.php");
+  require_once("./reusable/dbConfig.php");
   $conn = mysqli_connect($host,$user,$pwd,$db);
   $update = false;
   if(!$conn){

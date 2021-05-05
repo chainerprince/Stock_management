@@ -1,7 +1,11 @@
 <?php 
+
   require_once("../reusable/dbConfig.php");
   $stmt = "SELECT stk_products.* , stk_users.username FROM stk_products INNER JOIN stk_users ON stk_users.userId = stk_products.userId";
   $query =mysqli_query($connection, $stmt) or die(mysqli_error($connection));
+
+
+
 ?>
 
 <table>

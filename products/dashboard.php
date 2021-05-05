@@ -12,20 +12,22 @@
     <!-- <link rel="stylesheet" href="./sidebar2.css"> -->
     <!-- <link rel="stylesheet" href="../css/display.css"> -->
     <!-- <link rel="stylesheet" href="./dashproduct.css"> -->
-    <link rel="stylesheet" href="../css/dashboard.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/sidebar.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/table.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/dashboard.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/sidebar.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/table.css?v=<?php echo time(); ?>">
     
-    <link rel="stylesheet" href="../css/form.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/form.css?v=<?php echo time(); ?>">
 </head>
 <body>
     
     
-    <?php require_once("../reusable/dashnav.php");
-    require_once("../reusable/reports.tot.php"); require("reports.php")?>
+    <?php
+     require_once("./reusable/dbConfig.php");
+    require_once("./reusable/dashnav.php");
+    require_once("./reusable/reports.tot.php"); require("reports.php")?>
    
     <div class="container">
-    <?php require_once("../reusable/sidebar.php") ?>
+    <?php require_once("./reusable/sidebar.php") ?>
    
     <main class="main">
         <div class="main__cards">
@@ -61,10 +63,12 @@
       <div class="create__form" id="create">
       <?php if($_SESSION['role'] == 3) {?>
                <h5>Add Product to the store</h5>
+
           <?php require("./form.php") ?>
           <?php } ?>
 
         
+
       </div>
 
       <!-- UPDATING PRODUCT  -->
@@ -77,17 +81,17 @@
             $query = mysqli_query($connection,$data);
             $row = mysqli_fetch_array($query);
             if(isset($_POST['update'])){
-                include "./updateProducts.php";
+                include "./products/updateProducts.php";
                 updateProduct($id,$_POST,$connection);
               
             }
             
             $update = true;
-            require("./form.php"); 
+            require("./products/form.php"); 
           }
           else{
             print "<h2 style='text-align:center;'>Choose a product to update </h2>";
-            require("./displayProducts.php");
+            require("./products/displayProducts.php");
           }
 
  ?>
@@ -111,7 +115,7 @@
 
           }else{
               print "Select a Product to delete";
-              require("./displayProducts.php");
+              require("./products/displayProducts.php");
 
           }
          ?>
@@ -125,7 +129,7 @@
 <!-- DISPLAYING PRODUCTS -->
       <div class="all__products" id="products">
           <h4>All Products</h4>
-      <?php  require("./displayProducts.php");?>
+      <?php  require("./products/displayProducts.php");?>
 
       </div>
 
