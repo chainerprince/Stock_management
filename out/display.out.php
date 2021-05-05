@@ -2,7 +2,7 @@
 
  
 <?php
-$stmt = "SELECT * FROM stk_outgoing";
+$stmt = "SELECT stk_outgoing.* , stk_users.username FROM stk_outgoing INNER JOIN stk_users ON stk_users.userId = stk_outgoing.userId";
 $query = mysqli_query($connection,$stmt);
 ?>
 
@@ -13,6 +13,7 @@ $query = mysqli_query($connection,$stmt);
      <th>productId</th>
      <th>Quantity</th>
      <th>Added Time</th>
+     <th>User</th>
      <th>Update</th>
      <th>Delete</th>
  </tr>
@@ -28,6 +29,7 @@ while($row = mysqli_fetch_assoc($query) ){?>
            <td data-label="ProductId"><?=$row['productId']?></td>
            <td data-label="Qty"><?=$row['quantity']?></td>
            <td data-label="Date"><?=$row['added_date']?></td>
+           <td data-label="Date"><?=$row['username']?></td>
            <td data-label="Update"><a href="./dashboard.php?id=<?=$row['productId'] ?>#update">update</a></td>
            <td data-label="Delete"><a href="./dashboard.php?deleteId=<?=$row['outgoingId'] ?>#deletes">Delete</a></td>
            

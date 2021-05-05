@@ -21,7 +21,7 @@
     flex: 1;
     margin-left: 2rem;
     font-family: sans-serif;
-    color: rgb(26, 11, 241);
+    color: white;
 }
 .navbar ul{
     flex: .3;
@@ -31,14 +31,13 @@
 }
 .navbar ul li a{
     font-family: sans-serif;
-    color: rgb(11, 15, 243);
+    color: white;
 } 
 .sidebar{
     width: 3.4rem;
     height: 100vh;
     position: fixed;
-    /* background: rgba(19, 19, 226, 0.904); */
-    /* background-color: blue; */
+   
     background: black;
     left: 0;
 }

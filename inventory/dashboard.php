@@ -1,3 +1,6 @@
+<?php 
+ require_once("../reusable/session_header.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,3 +1,7 @@
+<?php 
+ require_once("../reusable/session_header.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -20,9 +24,15 @@
     <?php require_once("../reusable/dashnav.php") ?>
    
     <div class="container">
-    <?php require_once("../reusable/sidebar.php");require("../reusable/reports.tot.php") ?>
+    <?php 
+    if($_SESSION['role'] == 1){
+        require_once("../reusable/sidebar.php");
+    }
+    
+     require("../reusable/reports.tot.php") ?>
    
     <main class="main">
+    
         <div class="main__cards">
         <a href="http://localhost/php_project/products/dashboard.php#products" class="products">
         Products : <?=$totalProducts?> Products
@@ -51,10 +61,14 @@
         <!-- Routables -->
         <div class="routable" id="routes">
             <!-- CREATING A USER -->
-      <div class="create__form" id="create">
+      <?php if($_SESSION['role'] == 1){?> 
+        <div class="create__form" id="create">
                <h5 style="text-align: center;">Add User</h5>
+               <?php echo $_SESSION['role']  ?>
          <?php require("./form.php") ?>
       </div>
+     <?php } ?>
+   
 
           <!-- UPDATING THE USER -->
         <div class="update" id="update">
@@ -62,12 +76,13 @@
           <?php 
           if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $data = "SELECT * FROM stk_users WHERE userId=$id";
+            $data = "SELECT * FROM stk_users WHERE userId= $id";
             $query = mysqli_query($connection,$data);
 
             $row = mysqli_fetch_array($query);
+            
             $country_id = $row['nationality'];
-            $country = mysqli_fetch_assoc(mysqli_query($connection,"SELECT * FROM countries WHERE country_id = $country_id"));
+            $country = mysqli_fetch_assoc(mysqli_query($connection,"SELECT * FROM countries WHERE countryId = $country_id"));
         
             if(isset($_POST['update'])){
              
@@ -76,13 +91,12 @@
               
             }
             
-            $update = true;
             echo "This is the update page below";
-            require("./form.php"); 
+            require("./updateform.php"); 
           }
           else{
-            print "<h2>Choose a User to update </h2>";
-            require("./displayUsers.php");
+            // print "<h2>Choose a User to update </h2>";
+            // require("./displayUsers.php");
           }
 
  ?>
@@ -92,9 +106,10 @@
     
           <!-- DELETING A USER -->
       <div class="delete" id="deletes">
-          <h5>Delete User</h5>
+          
          <?php 
           if(isset($_GET['deleteId'])){
+              echo "<h5>Delete User</h5>";
               $id = $_GET['deleteId'];
               $data = "DELETE  FROM stk_users WHERE userId=$id";
               $query = mysqli_query($connection,$data);
@@ -105,21 +120,25 @@
               }
 
           }else{
-              print "Select a User to delete";
-              require("./displayUsers.php");
+            //   print "Select a User to delete";
+            //   require("./displayUsers.php");
 
           }
          ?>
+         
       </div>
      <!-- DISPLAYING A PRODUCT  -->
       <div class="all__products" id="products">
-          <h4>All Users</h4>
+         
 
-      <?php 
-      
-    
-      require("./displayUsers.php");
-      require("./search.php");
+      <?php  
+
+      if($_SESSION['role'] == 1) {
+          echo " <h4>All Users</h4>";
+        require("./displayUsers.php");
+        require("./search.php");
+      }
+     
       ?>
       </div>
 

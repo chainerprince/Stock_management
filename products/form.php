@@ -17,12 +17,12 @@
                <div>
                 <label for="supplier">Supplier</label>
                 <input type="text" name="supplier" id="supplier" maxlength="75" required 
-                value="<?=$update ? $row[3] : $supplier?>">
+                value="<?=$update ? $row[4] : $supplier?>">
                </div>
                 <div>
                     <label for="email">Supplier Phone</label>
                     <input type="tel" name="supplier_phone" id="supp_phone" maxlength="13" minlength="10" required
-                     value="<?=$update ? $row[4] : $supplier_phone ?>">
+                     value="<?=$update ? $row[3] : $supplier_phone ?>">
                  
                 </div>
             <button name = <?=$update ? "update" : "submit" ?> ><?=$update?"Update":"Add Product"?></button>

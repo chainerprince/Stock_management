@@ -1,3 +1,6 @@
+<?php 
+ require_once("../reusable/session_header.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,9 +59,16 @@
         <!-- Routables -->
         <div class="routable" id="routes">
        <!-- CREATING PRODUCT  -->
+       
       <div class="create__form" id="create">
+      <?php if($_SESSION['role'] == 3) {?>
                <h5>Add Product to the store</h5>
-          <?php require("./products/form.php") ?>
+
+          <?php require("./form.php") ?>
+          <?php } ?>
+
+        
+
       </div>
 
       <!-- UPDATING PRODUCT  -->
