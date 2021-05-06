@@ -13,7 +13,7 @@
       
     $query = mysqli_query($connection,$stmt) or die("error".mysqli_error($connection));
     if($query){
-      print "The Product Updated Succesfully";
+      print "The User Updated Succesfully";
     }
 
   }

@@ -1,62 +1,52 @@
-<?php $username = $lname = $fname = $telephone = $email = $password = "" ?>
+
 <style>
 <?php include  "./join.css"; ?>
 </style>
  
 <?php require_once("./addUser.php");   ?>
-<form action="<?=$update ? "./dashboard.php?id=$id#update" : "./dashboard.php#create"?>"  method="POST">
+<form action="./dashboard.php?id=$id#update"  method="POST">
      
-      <h4><?= $update ? "Update User":"Create User"; ?></h4> 
+      <h4>Update User</h4> 
                <div>
                 <label for="uname">Username</label>
-                <input type="text" name="uname" id="uname"
-                value="<?=$update ? $row['username'] : $username ?>"
+                <input type="text" name="uname" readonly id="uname"
+                value="<?=$row['username']?>"
                 >
             </div>
                 <div>
                     <label for="fname">First Name</label>
                     <input type="text" name="fname" id="fname"
-                    value="<?=$update ? $row[1] : $fname ?>"
+                    value="<?=$row['firstName']?>"
                     >
                     
                 </div>
                <div>
                 <label for="lname">Last Name</label>
                 <input type="text" name="lname" id="lname"
-                value="<?=$update ? $row[2] : $lname ?>"
+                value="<?=$row['lastName']?>"
                 >
                </div>
                 <div>
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email"
-                    value="<?=$update ? $row[7] : $email ?>"
+                    <input type="text" readonly name="email" id="email"
+                    value="<?=$row['email']?>"
                     >
                 </div>
-                <div>
-                    <label for="pwd">Password</label>
-                    <input type="password" name="pwd" id="pwd"
-                    value="<?=$update ? $row[8] : $password ?>"
-                    >
-                </div>
-                <div>
-                    <label for="confirm___pwd">Password</label>
-                    <input type="password" name="confirm__pwd" id="confirm__pwd"
-                    value="<?=$update ? $row[8] : $password ?>">
-                </div>
+               
                
                 <div>
                     <label for="tel">Telephone</label>
                     <input type="text" name="tel" id="tel" required 
                      title="We only accept ten digits"
-                    value="<?=$update ? $row[3] : $telephone ?>"
+                    value="<?= $row['telephone'] ?>"
                     >
                 </div>
                   
                 <div class="gender">
                     <label for="gender" id="top">Gender </label> 
-                        <input type="radio" name="gender" id="male" value="male" <?= $update ? $row[4] ? "checked" : "" : ""?> >
+                        <input type="radio" name="gender" id="male" value="male" <?=  $row[4] == "male" ? "checked":"" ?> >
                         <label for="male">Male</label>
-                        <input type="radio" name="gender" id="fmale" value="female">
+                        <input type="radio" name="gender" id="fmale" value="female" <?=  $row[4] == "female" ? "checked":"" ?>>
                         <label for="fmale">female</label>
                             
                 </div>
@@ -64,24 +54,24 @@
                 <div>
                     <label for="photo">Nationality</label>
                     <select name="nationality" id="nationality">
-                    <option value="<?= $update ? $country['country_id'] : "" ?>"> <?= $update ? $country['country_name'] : "" ?> </option>
+                    <option value="<?=  $country['countryId']  ?>"> <?= $country['countryName']  ?> </option>
                        <?php require("../reusable/countries.php") ?>
                     </select>
                    
                 </div>
-                <div>
+                <!-- <div>
                  <label for="role">Roles</label>
                  <select name="role" id="role">
-                 <?php 
+                 <!-- <?php 
                  $rolesQuery=mysqli_query($connection,"select * from roles");
                 if($rolesQuery){
                     while ($row=mysqli_fetch_assoc($rolesQuery)) {?>
                        <option value="<?=$row["roleId"] ?>"><?=$row["role"]?></option>
-                       <?php } }?>
+                       <?php } }?> -->
                  </select>
-                </div> 
+                </div>  -->
 
 
-                   <button name = <?=$update ? "update" : "submit" ?> ><?=$update?"Update":"Add User"?></button>
+                   <button name ="update">Update</button>
 
 </form>

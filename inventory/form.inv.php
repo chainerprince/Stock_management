@@ -1,7 +1,7 @@
 
 <?php
-if(isset($_GET['inveId'])){
-    $name = (int)$_GET['inveName'];
+if(isset($_GET['inveName'])){
+    $name = $_GET['inveName'];
     $qty = "";
 }else{
  $name = "";

@@ -5,6 +5,9 @@
     text-decoration: none;
     list-style-type: none;
 }
+.cards a{
+    color: white !important;
+}
 
 .navbar{
     position: fixed;
@@ -19,7 +22,7 @@
     flex: 1;
     margin-left: 2rem;
     font-family: sans-serif;
-    color: rgb(26, 11, 241);
+    color: white;
 }
 .navbar ul{
     flex: 1;
@@ -82,7 +85,7 @@
 }
 h3{
     margin-top: 15rem;
-    color: blue;
+    color: white;
     text-align: center;
      display: block;
 }

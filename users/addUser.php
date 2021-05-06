@@ -16,12 +16,22 @@
         $email = $_POST['email'];
         $nationality = $_POST['nationality'];
         $gender = $_POST['gender'];
-        if (!preg_match ("/^[+][0-9]*$/", $telephone) ) {  
+        $role = $_POST['role'];
+        if (!preg_match ('/^[0-9\-\(\)\/\+\s]*$/', $telephone) ) {  
             print "<span style='color:red;'>We only accept numeric characters for numbers</span>";
-        } else{
+        } 
+        $stmt = "SELECT userId  FROM stk_users WHERE username = '$username' and email = '$email' ";
+        if(mysqli_num_rows(mysqli_query($connection,$stmt))>0){
+               die("The user with that username or email is already registered");
+               return ;
+
+        }
+
+        else{
+            $hashedPwd = hash("sha512",$pwd);
             $query = "INSERT INTO stk_users
-            (firstName,lastName,telephone,gender,nationality,username,email,password)
-            VALUES ('$fname','$lname','$telephone','$gender','$nationality','$username','$email','$pwd');
+            (firstName,lastName,telephone,gender,nationality,username,email,password,role)
+            VALUES ('$fname','$lname','$telephone','$gender','$nationality','$username','$email','$hashedPwd','$role');
               ";
              $query_res = mysqli_query($conn,$query);
             if($query_res){

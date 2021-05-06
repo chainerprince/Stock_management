@@ -1,14 +1,15 @@
 <?php 
-
+   
   require_once("../reusable/dbConfig.php");
-  $stmt = "SELECT userId,added_time, firstName , lastName ,telephone, gender,nationality,username , email ,country_name from stk_users INNER JOIN countries on stk_users.nationality = countries.country_id;";
-  $query =mysqli_query($connection, $stmt);
+  $stmt = "SELECT userId,added_time, firstName , lastName ,telephone, gender,nationality,username , email ,countryName from stk_users INNER JOIN countries on stk_users.nationality = countries.countryId;";
+  $query =mysqli_query($connection, $stmt) or die(mysqli_error($connection));
 ?>
 <style>
  
  
 </style>
 
+<?php var_dump($_SESSION) ?>
 <table>
     <thead>
     <tr>
@@ -36,7 +37,7 @@
             <td data-label="Telephone"><?=$row["telephone"] ?></td>
             
             <td data-label="gender"><?=$row["gender"] ?></td>
-            <td data-label="Nationality"><?=$row["country_name"] ?></td>
+            <td data-label="Nationality"><?=$row["countryName"] ?></td>
             <td data-label="Username"><?=$row["username"] ?></td>
             <td data-label="Email"><?=$row["email"] ?></td>
             <td data-label="Date"><?=substr($row["added_time"],0,10) ?></td>
