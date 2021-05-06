@@ -1,6 +1,5 @@
 <?php 
   include "../reusable/dbConfig.php";
-  
   function updateProduct($id,$values,$connection){
     $stmt = sprintf("UPDATE stk_users set firstName='%s' ,lastName='%s',
     telephone='%s',gender='%s',nationality='%s',
