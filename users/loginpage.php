@@ -5,7 +5,6 @@ session_start();
      exit;
  }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
