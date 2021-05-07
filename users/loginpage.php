@@ -1,9 +1,11 @@
 <?php
 session_start();
+require("login.php");
  if(isset($_SESSION['username'])){
      header("location:./dashboard.php");
      exit;
  }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +20,7 @@ session_start();
     <style>
         .login{
             background: gray;
-            width: 40%;
+            width: 30%;
             margin: auto;
         }
         h2{
@@ -33,10 +35,11 @@ session_start();
             display: block;
             padding: 19px 70px;
             border-radius: 8px;
-            margin: 22px;
+            margin: 12px 22px;
             border: none;
-            /* border-bottom: 1px solid black; */
             outline: none;
+            margin-top: 2px;
+
         }
         input::placeholder{
             font-size: 19px;
@@ -44,15 +47,18 @@ session_start();
         }
         button{
             display: block;
-            animation: changecolor 5s infinite;
             margin-left: 23px;
             position: relative;
-            background: rgb(255, 0, 179);
-            padding: 15px 73px;
+            background: #ff5484;
+            padding: 10px 63px;
             border: none;
             border-radius: 23px;
             cursor: pointer;
-            margin-top: 2px;
+            font-size: 21px;
+            color: white;
+        }
+        button:hover{
+            background: #f53677;
         }
         h3{
             color: white;
@@ -60,30 +66,6 @@ session_start();
         h3 span a{
             font-size: 23px;
             /* color: white; */
-        }
-        @keyframes changecolor{
-            0%{
-                color: black;
-                text-shadow: 0px 0px;
-                box-shadow: 2px 2px;
-            }
-            25%{
-                color: white;
-                text-shadow: none;
-                box-shadow: 9px 9px 9px cyan;
-            }
-            50%{
-                color: white;
-                background-color: green;
-            }
-            75%{
-                box-shadow: 6px 6px 6px indigo;
-                color: white;
-            }
-            100%{
-                box-shadow: 12px 12px 12px lightsalmon;
-                color: white;
-            }
         }
         .field{
             position: relative;
@@ -104,7 +86,7 @@ session_start();
 <body>
     <div class="login">
         <h2>login Here</h2>
-    <form action="dashboard.php" method="POST">
+    <form action="" method="POST">
     <div class="field">
         <i class="far fa-user" id="icon"></i>
     <input type="text" name="username" placeholder="Username">

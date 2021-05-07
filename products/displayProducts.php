@@ -1,11 +1,7 @@
 <?php 
-
   require_once("../reusable/dbConfig.php");
   $stmt = "SELECT stk_products.* , stk_users.username FROM stk_products INNER JOIN stk_users ON stk_users.userId = stk_products.userId";
   $query =mysqli_query($connection, $stmt) or die(mysqli_error($connection));
-
-
-
 ?>
 
 <table>
@@ -21,13 +17,9 @@
          
             <?php 
             if($_SESSION['role']==3){?>
-
-            
             <th>Update</th>
             <th>Delete</th>
-
             <?php } ?>
-            
             <th>Add</th>
             <th>Sell</th>
         </tr>
@@ -35,11 +27,10 @@
 </thead>
 <?php 
 $row = mysqli_fetch_assoc($query);
-var_dump($row);
+// var_dump($row);
 ?>
     <?php while($row = mysqli_fetch_assoc($query)){ 
-          var_dump($row);
-         
+        //   var_dump($row);
         ?> 
        <tbody>
            

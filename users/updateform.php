@@ -5,7 +5,6 @@
  
 <?php require_once("./addUser.php");   ?>
 <form action="./dashboard.php?id=$id#update"  method="POST">
-     
       <h4>Update User</h4> 
                <div>
                 <label for="uname">Username</label>
@@ -59,19 +58,22 @@
                     </select>
                    
                 </div>
-                <!-- <div>
+
+              <?php  if($_SESSION['role']==1){?>
+                 <div>
                  <label for="role">Roles</label>
                  <select name="role" id="role">
-                 <!-- <?php 
+                  <?php 
                  $rolesQuery=mysqli_query($connection,"select * from roles");
                 if($rolesQuery){
                     while ($row=mysqli_fetch_assoc($rolesQuery)) {?>
                        <option value="<?=$row["roleId"] ?>"><?=$row["role"]?></option>
-                       <?php } }?> -->
+                       <?php } }?> 
                  </select>
-                </div>  -->
+                </div> 
 
-
-                   <button name ="update">Update</button>
+              <?php  } ?>
+              
+                   <button class="btn-abs" name="update">Update</button>
 
 </form>

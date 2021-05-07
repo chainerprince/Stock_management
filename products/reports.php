@@ -1,13 +1,9 @@
  
 
 <?php function showTable(){
-  
-
     require("../reusable/dbConfig.php");
       $stmt = "SELECT inventory_id, stk_inventory.added_date, product_Name,stk_products.productId, SUM(stk_products.quantity) as TotalQty FROM stk_products INNER JOIN stk_inventory ON stk_products.productId = stk_inventory.productId GROUP BY(product_Name)";
-
       $quantity = mysqli_query($connection,$stmt) or die("Error".mysqli_error($connection));
-    
     ?>
 <table>
 <caption>The list of products in the table</caption>
@@ -20,10 +16,7 @@
  </tr>
 </thead>
  <tbody>
- 
-
 <?php while($row=mysqli_fetch_assoc($quantity)){ ?>
-
    <tr>
     <td data-label="No"><?=$row['inventory_id']?></td>
     <td data-label="Name"><?=$row['product_Name']?></td>
@@ -33,17 +26,8 @@
 <?php  } ?>
 </tbody>
 </table>
-
 <?php } ?>
-
-
-
-
-
-
 <?php function showOutGoing(){
-   
-
     require("../reusable/dbConfig.php");
       $stmt = "SELECT outgoingId, stk_outgoing.added_date, product_Name,stk_products.productId, SUM(stk_products.quantity) as TotalQty FROM stk_products INNER JOIN stk_outgoing ON stk_products.productId = stk_outgoing.productId GROUP BY(product_Name)";
 
@@ -59,9 +43,7 @@
  <th>Date</th>
  </tr>
 </thead>
-
 <tbody>
-
 <?php while($row=mysqli_fetch_assoc($quantity)){ ?>
    <tr>
     <td data-label="No"><?=$row['outgoingId']?></td>
@@ -72,18 +54,4 @@
 <?php  } ?>
 </tbody>
 </table>
-
 <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-

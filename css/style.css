@@ -11,10 +11,8 @@
 
 .navbar{
     position: fixed;
-   
     align-items: center;
     justify-content: space-around;
-    
     height: 3rem;
     z-index: 3;
 }
@@ -29,7 +27,6 @@
     display: flex;
     margin-right: auto;
     justify-content: space-around;
-    
 }
 .navbar ul li a{
     font-family: sans-serif;

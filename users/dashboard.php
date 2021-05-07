@@ -74,10 +74,10 @@
         <div class="update" id="update">
           <h5>Update User</h5>
           <?php 
-          if(isset($_GET['id'])){
-            $id = $_GET['id'];
+          if(isset($_GET['update'])){
+            $id = $_SESSION['userId'];
             $data = "SELECT * FROM stk_users WHERE userId= $id";
-            $query = mysqli_query($connection,$data);
+            $query = mysqli_query($connection,$data) or die(mysqli_error($connection));
 
             $row = mysqli_fetch_array($query);
             
@@ -95,8 +95,11 @@
             require("./updateform.php"); 
           }
           else{
-            // print "<h2>Choose a User to update </h2>";
-            // require("./displayUsers.php");
+            if($_SESSION['role']==1){
+            print "<h2>Choose a User to update </h2>";
+            require("./displayUsers.php");
+            }
+           
           }
 
  ?>
@@ -108,7 +111,7 @@
       <div class="delete" id="deletes">
           
          <?php 
-          if(isset($_GET['deleteId'])){
+          if(isset($_GET['delete'])){
               echo "<h5>Delete User</h5>";
               $id = $_GET['deleteId'];
               $data = "DELETE  FROM stk_users WHERE userId=$id";
@@ -120,17 +123,25 @@
               }
 
           }else{
-            //   print "Select a User to delete";
-            //   require("./displayUsers.php");
+            if($_SESSION['role']==1){
+              print "Select a User to delete";
+              require("./displayUsers.php");
+            }
 
           }
          ?>
          
       </div>
      <!-- DISPLAYING A PRODUCT  -->
+     <div class="reports" id="reports">
+          <h4 style="text-align: center;">Users Who logged In this month</h4>
+          <?php
+             require("user.reports.php");
+           ?>
+      </div>
       <div class="all__products" id="products">
          
-
+   
       <?php  
 
       if($_SESSION['role'] == 1) {

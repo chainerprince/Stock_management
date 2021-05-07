@@ -17,7 +17,7 @@
 
        if(isset($_POST['user'])){
              $name = $_POST['user'];
-             $stmt = "SELECT * FROM stk_users INNER JOIN countries ON countries.country_id = stk_users.nationality WHERE  username LIKE '%$name%' ";
+             $stmt = "SELECT * FROM stk_users INNER JOIN countries ON countries.countryId = stk_users.nationality WHERE  username LIKE '%$name%' ";
              $query = mysqli_query($connection,$stmt) or die("error".mysqli_error($connection));
              if( mysqli_num_rows($query)>=1){
                 $display ='block';
@@ -56,7 +56,7 @@
             <td><?=$row["telephone"] ?></td>
             
             <td><?=$row["gender"] ?></td>
-            <td><?=$row["country_name"] ?></td>
+            <td><?=$row["countryName"] ?></td>
             <td><?=$row["username"] ?></td>
             <td><?=$row["email"] ?></td>
             <td><?=$row["added_time"] ?></td>

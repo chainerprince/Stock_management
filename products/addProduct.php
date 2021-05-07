@@ -1,5 +1,5 @@
 <?php
-  require_once("./reusable/dbConfig.php");
+  require_once("../reusable/dbConfig.php");
   $conn = mysqli_connect($host,$user,$pwd,$db);
   $update = false;
   if(!$conn){
@@ -17,7 +17,7 @@
             print "<span style='color:red;'>The phone number can't contain letters except + sign</span>";
         } else{
             $query = "INSERT INTO stk_products
-            (product_Name,brand,supplier_phone,supplier,'userId')
+            (product_Name,brand,supplier_phone,supplier,userId)
             VALUES ('$name','$brand','$supplier_phone','$supplier','$userId');
               ";
              $query_res = mysqli_query($conn,$query);

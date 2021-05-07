@@ -9,7 +9,6 @@ label{
    width: 22%;
    
 }
-
 .lang{
     display: flex;
     align-items: center;
@@ -32,6 +31,7 @@ input[type="password"]{
     height: 40px;
     border: none;
     /* filter: brightness(200%); */
+    color: white;
     border-radius: .3rem;
     padding: 5px 0px 5px 10px;
 }
