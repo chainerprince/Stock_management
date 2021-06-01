@@ -1,6 +1,9 @@
 <?php 
   include "../reusable/dbConfig.php";
   function updateProduct($id,$values,$connection){
+            // if (!preg_match ('/^[0-9\-\(\)\/\+\s]*$/', $values['tel']) ) {  
+            print "<span style='color:red;'>We only accept numeric characters for numbers</span>";
+        } 
     $stmt = sprintf("UPDATE stk_users set firstName='%s' ,lastName='%s',
     telephone='%s',gender='%s',nationality='%s',
      username = '%s',email='%s' WHERE userId = $id",
@@ -12,7 +15,7 @@
       print "The User Updated Succesfully";
     }
 
-  }
+  // }
 function loadCountries($connection){
 }
 ?>

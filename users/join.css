@@ -9,6 +9,10 @@ label{
    width: 22%;
    
 }
+input{
+    color:  white !important;
+    outline: none;
+}
 .lang{
     display: flex;
     align-items: center;
