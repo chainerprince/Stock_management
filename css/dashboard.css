@@ -1,5 +1,5 @@
 body{
-    background-color: #222;
+    background-color: #111;
     font-family: sans-serif;
     color: white;
 }
@@ -10,7 +10,7 @@ h1,h2,h3,h4,h5,h6{
 .container{
     /* display: flex;
     justify-content: space-around; */
-    background-color: #222;
+    background-color: #111;
     
   }
   

@@ -45,7 +45,7 @@
             </a>
                   
       
-         
+         w
              <a href="http://localhost/php_project/out/dashboard.php#products" class="outgoing">
              Outgoing : <?=$outTotal ?> Products
             </a>
@@ -113,9 +113,9 @@
          <?php 
           if(isset($_GET['delete'])){
               echo "<h5>Delete User</h5>";
-              $id = $_GET['deleteId'];
+              $id = $_SESSION['userId'];
               $data = "DELETE  FROM stk_users WHERE userId=$id";
-              $query = mysqli_query($connection,$data);
+              $query = mysqli_query($connection,$data) or die(mysqli_error($connection));
               if($query){
                   print "The User with id $id is deleted succesfully ";
               }else{
@@ -136,7 +136,12 @@
      <div class="reports" id="reports">
           <h4 style="text-align: center;">Users Who logged In this month</h4>
           <?php
-             require("user.reports.php");
+          if($_SESSION['role']==1){
+ require("user.reports.php");
+          }else{
+            null;
+          }
+            
            ?>
       </div>
       <div class="all__products" id="products">

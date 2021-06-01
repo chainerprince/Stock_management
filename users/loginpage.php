@@ -22,6 +22,7 @@ require("login.php");
             background: gray;
             width: 30%;
             margin: auto;
+            height: 260px;
         }
         h2{
             color: white;

@@ -23,7 +23,15 @@
 
    
     <div class="container">
-    <?php require_once("../reusable/sidebar.php");require("../reusable/reports.tot.php") ?>
+    <?php 
+    if($_SESSION['role']==2 or $_SESSION['role']==4){
+require_once("../reusable/sidebar.php");
+    }else{
+        require("../reusable/productSide.php");
+    }
+    
+    
+    require("../reusable/reports.tot.php") ?>
    
     <main class="main">
         <div class="main__cards">

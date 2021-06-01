@@ -39,7 +39,7 @@
                     >
                 </div>
                 <div>
-                    <label for="confirm___pwd">Password</label>
+                    <label for="confirm___pwd">Repassword</label>
                     <input type="password" name="confirm__pwd" id="confirm__pwd"
                     value="<?=$update ? $row[8] : $password ?>">
                 </div>

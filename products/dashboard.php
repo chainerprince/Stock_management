@@ -117,6 +117,11 @@
       </div>
         </div>
       <!-- REPORTS BASED ON PRODUCTS -->
+      <style>
+      .reports{
+          margin-top: 45px;
+      }
+      </style>
       <div class="reports" id="reports">
           <h4 style="text-align: center;">Report Based on Product</h4>
           <?php showTable();showOutGoing() ?>

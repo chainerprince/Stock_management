@@ -22,7 +22,7 @@ $username= trim($_POST["username"]);
 $sql="SELECT * from stk_users where username='$username';";
 $query=mysqli_query($connection,$sql);
 if(mysqli_num_rows($query)<1){
-    echo "<p>Invalid Login</p>";
+    echo "<p>Invalid Logins</p>";
 }
 else{
     $row=mysqli_fetch_assoc($query);
