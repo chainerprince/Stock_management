@@ -77,7 +77,7 @@ tr:hover{
                 ?>
             </td>
             <td data-label="delete">
-                <a href="./dashboard.php?delete=true#deletes">Delete</a>
+                <a href="./dashboard.php?deleteId=<?=$row['userId']?>#deletes">Delete</a>
             </td>
             
         </tr>

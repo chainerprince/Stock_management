@@ -111,7 +111,7 @@
       <div class="delete" id="deletes">
           
          <?php 
-          if(isset($_GET['delete'])){
+          if(isset($_GET['deleteId'])){
               echo "<h5>Delete User</h5>";
               $id = $_GET['deleteId'];
               $data = "DELETE  FROM stk_users WHERE userId=$id";
