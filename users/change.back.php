@@ -10,14 +10,14 @@ else{
    $hashed=hash('SHA512',$password);
    include "connection.php";
    $query="SELECT * from stk_users WHERE userId='$userid' and password='$hashed'";
-$exe=mysqli_query($connection,$query);
-if(mysqli_num_rows($exe)==0){
+$exe=$conn->query($query);
+if($exe->num_rows==0){
    echo " The Current Password is wrong";
 }
 else{
    $hashed=hash("SHA512",$newPassword);
    $updateQuery="update stk_users set password='$hashed' WHERE userId='$userid'";
-$execute=mysqli_query($connection,$updateQuery);
+$execute=$conn->query($updateQuery);
 if($execute){
    echo "Changed succesfully";
 }}}

@@ -9,6 +9,5 @@
                     <li><a href="../products/dashboard.php#reports">Product Reports</a></li>
                     <li><a href="../users/dashboard.php#reports">User Reports</a></li>
                     <li><a href="../users/logout.php">logout</a></li>
-                   
                 </ul>
 </nav>

@@ -41,22 +41,22 @@
     <main class="main">
         <div class="main__cards">
  
-         <a href="http://localhost/php_project/products/dashboard.php#products" class="products">
+         <a href="http://localhost/store-oop/products/dashboard.php#products" class="products">
          Products : <?=$totalProducts?> Products
             </a>
          
    
          
-             <a href="http://localhost/php_project/inventory/dashboard.php#products" class="incoming">
+             <a href="http://localhost/store-oop/inventory/dashboard.php#products" class="incoming">
              Inventory :  <?= $invTotal ?> Products
             </a>
                   
       
          
-             <a href="http://localhost/php_project/out/dashboard.php#products" class="outgoing">
+             <a href="http://localhost/store-oop/out/dashboard.php#products" class="outgoing">
              Outgoing : <?=$outTotal ?> Products
             </a>
-             <a href="http://localhost/php_project/users/dashboard.php#products" class="users">
+             <a href="http://localhost/store-oop/users/dashboard.php#products" class="users">
              store users
             </a>
         </div>
@@ -76,11 +76,11 @@
           if(isset($_GET['id'])){
             $id = $_GET['id'];
             $data = "SELECT * FROM stk_products WHERE productId=$id";
-            $query = mysqli_query($connection,$data);
-            $row = mysqli_fetch_array($query);
+            $query = $conn->query($data);
+            $row = $query->fetch_array();
             if(isset($_POST['update'])){
                 include "./products/updateProducts.php";
-                updateProduct($id,$_POST,$connection);
+                updateProduct($id,$_POST,$conn);
               
             } 
             $update = true;
@@ -99,11 +99,11 @@
           if(isset($_GET['deleteId'])){
               $id = $_GET['deleteId'];
               $data = "DELETE  FROM stk_products WHERE productId=$id";
-              $query = mysqli_query($connection,$data);
+              $query = $conn->query($data);
               if($query){
                   print "The product with id $id is deleted succesfully ";
               }else{
-                  print "You can't delete this product".mysqli_error($connection);
+                  print "You can't delete this product".$conn_error;
               }
           }else{
               print "Select a Product to delete";

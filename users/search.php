@@ -18,8 +18,8 @@
        if(isset($_POST['user'])){
              $name = $_POST['user'];
              $stmt = "SELECT * FROM stk_users INNER JOIN countries ON countries.countryId = stk_users.nationality WHERE  username LIKE '%$name%' ";
-             $query = mysqli_query($connection,$stmt) or die("error".mysqli_error($connection));
-             if( mysqli_num_rows($query)>=1){
+             $query = $conn->query($stmt) or die("error".$conn->connect_error);
+             if( $query->num_rows>=1){
                 $display ='block';
                 echo "<h4 style='color:green;'>The user is found</h4>";
              }else{
@@ -45,7 +45,7 @@
             <th>Update</th>
             <th>Delete</th>
         </tr>
-    <?php while($row = mysqli_fetch_assoc($query)){ 
+    <?php while($row = $query->fetch_assoc()){ 
        
         ?> 
       

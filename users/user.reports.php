@@ -3,7 +3,7 @@ require_once("../reusable/dbConfig.php");
 // <table></table>
 
 $stmt = "SELECT platform.*, u.username FROM platform INNER JOIN stk_users u ON platform.userId = u.userId";
-$query = mysqli_query($connection,$stmt) or die(mysqli_error($connection));
+$query = $conn->query($stmt) or die($conn->connect_error);
 ?>
 
 <table>
@@ -19,7 +19,7 @@ $query = mysqli_query($connection,$stmt) or die(mysqli_error($connection));
 <tbody>
 
 <?php
-while($row = mysqli_fetch_assoc($query)){?>
+while($row = $query->fetch_assoc()){?>
      <tr>
       <td><?=$row['username']?></td>
       <td><?=$row['browser']?></td>

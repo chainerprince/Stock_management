@@ -1,9 +1,9 @@
 <?php
   require_once("../reusable/dbConfig.php");
-  $conn = mysqli_connect($host,$user,$pwd,$db);
+  $conn = new mysqli($host,$user,$pwd,$db);
   $update = false;
   if(!$conn){
-      die("The database connection failed". mysqli_connect_error());
+      die("The database connection failed". $conn->connect_error);
   }else{
      
       if(isset($_POST['submit'])){
@@ -20,17 +20,14 @@
             (product_Name,brand,supplier_phone,supplier,userId)
             VALUES ('$name','$brand','$supplier_phone','$supplier','$userId');
               ";
-             $query_res = mysqli_query($conn,$query);
+             $query_res = $conn->query($query);
             if($query_res){
                 print "<span style='color:green;'>The query submitted successfully ✔️✔️✔️</span>";
             }else{
-                print "<span style='color:red;'>". mysqli_error($conn) . "❌❌❌" ."</span>";
+                print "<span style='color:red;'>".$conn->error. "❌❌❌" ."</span>";
             }
         } 
 
-      }
-     
-
-      
+      }    
   }
 ?>

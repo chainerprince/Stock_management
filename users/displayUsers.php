@@ -32,7 +32,7 @@ tr:hover{
     <?php    
   require_once("../reusable/dbConfig.php");
   $stmt = "SELECT userId,added_time, firstName , lastName ,telephone, gender,nationality,username , email ,countryName from stk_users INNER JOIN countries on stk_users.nationality = countries.countryId;";
-  $query =mysqli_query($connection, $stmt) or die(mysqli_error($connection));
+  $query =$conn->query($stmt) or die($conn->error);
 ?>
 <style>
  
@@ -56,7 +56,7 @@ tr:hover{
 
     </thead>
    
-    <?php while($row = mysqli_fetch_assoc($query)){ ?> 
+    <?php while($row =$query->fetch_assoc()){ ?> 
         <tbody>
         <tr>
         <td><?=$row["userId"] ?></td>

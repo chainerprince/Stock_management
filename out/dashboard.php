@@ -37,25 +37,25 @@ require_once("../reusable/sidebar.php");
         <div class="main__cards">
        
             
-            <a href="http://localhost/php_project/products/dashboard.php#products" class="products">
+            <a href="http://localhost/store-oop/products/dashboard.php#products" class="products">
             Products : <?=$totalProducts?> Products
             </a>
          
    
          
-             <a href="http://localhost/php_project/inventory/dashboard.php#products" class="incoming">
+             <a href="http://localhost/store-oop/inventory/dashboard.php#products" class="incoming">
              Inventory :  <?= $invTotal ?> Products
             </a>
                   
       
          
-             <a href="http://localhost/php_project/out/dashboard.php#products" class="outgoing">
+             <a href="http://localhost/store-oop/out/dashboard.php#products" class="outgoing">
              Outgoing : <?=$outTotal ?> Products
             </a>
                 
        
 
-             <a href="http://localhost/php_project/users/dashboard.php#products" class="users">
+             <a href="http://localhost/store-oop/users/dashboard.php#products" class="users">
              store users
             </a>
        
@@ -72,9 +72,9 @@ require_once("../reusable/sidebar.php");
          <?php 
  $stmt2 = "SELECT product_Name FROM stk_products";
  
- $products = mysqli_query($connection,$stmt2) or die("Error. " . mysqli_error($connection));
+ $products = $conn->query($stmt2) or die("Error. " . $conn->error);
  echo "<table> <tr> <th> product name </th> ";
- while($row = mysqli_fetch_assoc($products)){
+ while($row = $products->fetch_assoc()){
     echo "<tr> <td> ".$row['product_Name'] . "</td> </tr>";
  }
   echo "</table>";
@@ -93,13 +93,13 @@ require_once("../reusable/sidebar.php");
           if(isset($_GET['id'])){
             $id = $_GET['id'];
             $data = "SELECT * FROM stk_products WHERE productId=$id";
-            $query = mysqli_query($connection,$data);
-            $row = mysqli_fetch_array($query);
+            $query = $conn->query($data);
+            $row = $query->fetch_array();
            
             if(isset($_POST['update'])){
               
                 include "./update.out.php";
-                updateOutgoing($id,$_POST,$connection);
+                updateOutgoing($id,$_POST,$conn);
               
             }
             
@@ -124,7 +124,7 @@ require_once("../reusable/sidebar.php");
           if(isset($_GET['deleteId'])){
               $id = $_GET['deleteId'];
               $data = "DELETE  FROM stk_outgoing WHERE outgoingId=$id";
-              $query = mysqli_query($connection,$data);
+              $query = $conn->query($data);
               if($query){
                   print "The User with id $id is deleted succesfully ";
               }else{

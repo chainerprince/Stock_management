@@ -20,12 +20,12 @@ if(isset($_POST['pswd'])){
 $password= trim($_POST["pswd"]);
 $username= trim($_POST["username"]);
 $sql="SELECT * from stk_users where username='$username';";
-$query=mysqli_query($connection,$sql);
-if(mysqli_num_rows($query)<1){
-    echo "<p>Invalid Logins</p>";
+$query=$conn->query($sql);
+if($query->num_rows<1){
+    echo "<p>Invalid Login</p>";
 }
 else{
-    $row=mysqli_fetch_assoc($query);
+    $row=$query->fetch_assoc();
     //hashing given password
     $hashpswd=hash("sha512",$password);
     //comparing two password
@@ -42,7 +42,7 @@ else{
          $_SESSION['userId'] = $userId;        
          require("platform.php");
          $stmt = "INSERT INTO platform(mac_adress,ip_adress,OS,Browser,userId) VALUES('$MAC','$ip_address','$operating_system','$user_browser',$userId)";
-         $query = mysqli_query($connection,$stmt) or die(mysqli_error($connection));
+         $query = $conn->query($stmt) or die($conn->error);
          if($query){
             null;
          }else{
