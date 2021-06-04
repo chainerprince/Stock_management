@@ -1,8 +1,7 @@
 
 <style>
 <?php include  "./join.css"; ?>
-</style>
- 
+</style> 
 <?php require_once("./addUser.php");   ?>
 <form action="./dashboard.php?id=$id#update"  method="POST">
       <h4>Update User</h4> 
@@ -16,8 +15,7 @@
                     <label for="fname">First Name</label>
                     <input type="text" name="fname" id="fname"
                     value="<?=$row['firstName']?>"
-                    >
-                    
+                    >                    
                 </div>
                <div>
                 <label for="lname">Last Name</label>
@@ -31,8 +29,6 @@
                     value="<?=$row['email']?>"
                     >
                 </div>
-               
-               
                 <div>
                     <label for="tel">Telephone</label>
                     <input type="text" name="tel" id="tel" required 
@@ -56,24 +52,19 @@
                     <option value="<?=  $country['countryId']  ?>"> <?= $country['countryName']  ?> </option>
                        <?php require("../reusable/countries.php") ?>
                     </select>
-                   
                 </div>
-
               <?php  if($_SESSION['role']==1){?>
                  <div>
                  <label for="role">Roles</label>
                  <select name="role" id="role">
                   <?php 
-                 $rolesQuery=mysqli_query($connection,"select * from roles");
+                 $rolesQuery=$conn->query("select * from roles");
                 if($rolesQuery){
-                    while ($row=mysqli_fetch_assoc($rolesQuery)) {?>
+                    while ($row=$rolesQuery->fetch_assoc()) {?>
                        <option value="<?=$row["roleId"] ?>"><?=$row["role"]?></option>
                        <?php } }?> 
                  </select>
                 </div> 
-
               <?php  } ?>
-              
                    <button class="btn-abs" name="update">Update</button>
-
 </form>

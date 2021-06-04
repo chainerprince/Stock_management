@@ -73,15 +73,12 @@
                  <label for="role">Roles</label>
                  <select name="role" id="role">
                  <?php 
-                 $rolesQuery=mysqli_query($connection,"select * from roles");
+                 $rolesQuery=$conn->query("select * from roles");
                 if($rolesQuery){
-                    while ($row=mysqli_fetch_assoc($rolesQuery)) {?>
+                    while ($row=$rolesQuery->fetch_assoc()) {?>
                        <option value="<?=$row["roleId"] ?>"><?=$row["role"]?></option>
                        <?php } }?>
                  </select>
                 </div> 
-
-
                    <button name = <?=$update ? "update" : "submit" ?> ><?=$update?"Update":"Add User"?></button>
-
 </form>

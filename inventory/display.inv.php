@@ -1,7 +1,7 @@
 
 <?php
    $stmt = "SELECT stk_inventory.* , stk_users.username FROM stk_inventory INNER JOIN stk_users ON stk_users.userId = stk_inventory.userId";
-   $query = mysqli_query($connection,$stmt);
+   $query =$conn->query($stmt);
    ?>
 
    <table>
@@ -19,7 +19,7 @@
        </thead>
  
    <?php 
-   while($row = mysqli_fetch_assoc($query) ){?>
+   while($row = $query->fetch_assoc()){?>
    <tbody>
           <tr>
               <td data-label="No"><?=$row['inventory_id']?></td>

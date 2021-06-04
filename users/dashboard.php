@@ -4,7 +4,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,31 +27,30 @@
     if($_SESSION['role'] == 1){
         require_once("../reusable/sidebar.php");
     }
+
+
+
+
+
+
+
+
+    
     
      require("../reusable/reports.tot.php") ?>
    
     <main class="main">
-    
         <div class="main__cards">
-        <a href="http://localhost/php_project/products/dashboard.php#products" class="products">
+        <a href="http://localhost/oop/products/dashboard.php#products" class="products">
         Products : <?=$totalProducts?> Products
             </a>
-         
-   
-         
-             <a href="http://localhost/php_project/inventory/dashboard.php#products" class="incoming">
+             <a href="http://localhost/oop/inventory/dashboard.php#products" class="incoming">
              Inventory :  <?= $invTotal ?> Products
             </a>
-                  
-      
-         w
-             <a href="http://localhost/php_project/out/dashboard.php#products" class="outgoing">
+             <a href="http://localhost/oop/out/dashboard.php#products" class="outgoing">
              Outgoing : <?=$outTotal ?> Products
             </a>
-                
-       
-
-             <a href="http://localhost/php_project/users/dashboard.php#products" class="users">
+             <a href="http://localhost/oop/users/dashboard.php#products" class="users">
              store users
             </a>
        
@@ -75,19 +73,22 @@
           <h5>Update User</h5>
           <?php 
           if(isset($_GET['update'])){
-            $id = $_SESSION['userId'];
+            $id = $_GET['update'];
+           
             $data = "SELECT * FROM stk_users WHERE userId= $id";
-            $query = mysqli_query($connection,$data) or die(mysqli_error($connection));
-
-            $row = mysqli_fetch_array($query);
-            
+            $query = $conn->query($data) or die($conn->error());
+            // var_dump($query);
+            // echo $id;
+            // var_dump($_SESSION);
+            $row = $query->fetch_assoc();
+            // var_dump($row);
             $country_id = $row['nationality'];
-            $country = mysqli_fetch_assoc(mysqli_query($connection,"SELECT * FROM countries WHERE countryId = $country_id"));
-        
+            $countrySql="SELECT * FROM countries WHERE countryId = $country_id;";
+            $countries=$conn->query($countrySql);
+            $country = $countries->fetch_assoc();
             if(isset($_POST['update'])){
-             
                 include "./updateUser.php";
-                updateProduct($id,$_POST,$connection);
+                updateProduct($id,$_POST,$conn);
               
             }
             
@@ -115,7 +116,7 @@
               echo "<h5>Delete User</h5>";
               $id = $_SESSION['userId'];
               $data = "DELETE  FROM stk_users WHERE userId=$id";
-              $query = mysqli_query($connection,$data) or die(mysqli_error($connection));
+              $query = $conn->exec($data) or die($conn->error);
               if($query){
                   print "The User with id $id is deleted succesfully ";
               }else{

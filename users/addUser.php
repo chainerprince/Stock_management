@@ -1,9 +1,9 @@
 <?php
   require_once("../reusable/dbConfig.php");
-  $conn = mysqli_connect($host,$user,$pwd,$db);
+  // $conn = new mysqli($host,$user,$pwd,$db);
   $update = false;
   if(!$conn){
-      die("The database connection failed". mysqli_connect_error());
+      die("The database connection failed". $conn->connect_error());
   }else{
      
       if(isset($_POST['submit'])){
@@ -22,7 +22,7 @@
         }
         else{ 
         $stmt = "SELECT userId  FROM stk_users WHERE username = '$username' and email = '$email' ";
-        if(mysqli_num_rows(mysqli_query($connection,$stmt))>0){
+        if($conn->query($stmt)){
                die("The user with that username or email is already registered");
                return ;
 
@@ -33,11 +33,11 @@
             (firstName,lastName,telephone,gender,nationality,username,email,password,role)
             VALUES ('$fname','$lname','$telephone','$gender','$nationality','$username','$email','$hashedPwd','$role');
               ";
-             $query_res = mysqli_query($conn,$query);
+             $query_res = $conn->exec($query);
             if($query_res){
                 print "<span style='color:green;'>The user is added successfully ✔️✔️✔️</span>";
             }else{
-                print "<span style='color:red;'>". mysqli_error($conn) . "❌❌❌" ."</span>";
+                print "<span style='color:red;'>". $conn->error . "❌❌❌" ."</span>";
             }
         } 
 

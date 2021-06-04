@@ -15,13 +15,13 @@
     
     <?php 
      $stmt = "SELECT product_Name,productId FROM stk_products";
-     $query = mysqli_query($connection,$stmt) or die(mysqli_error($connection));
+     $query = $conn->query($stmt) or die($conn->error);
      
     ?>
     <label for="productId">Product Name</label>
     <select name="pro_name" id="id">
     <?php
-     while($row=mysqli_fetch_assoc($query)){
+     while($row=$query->fetch()){
        ?>
    <option value="<?=$row['productId']?>"><?=$row['product_Name']?></option>
     <?php }

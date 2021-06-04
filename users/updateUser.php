@@ -1,6 +1,7 @@
 <?php 
   include "../reusable/dbConfig.php";
-  function updateProduct($id,$values,$connection){
+  function updateProduct($id,$values,$conn){
+    echo $conn;
             // if (!preg_match ('/^[0-9\-\(\)\/\+\s]*$/', $values['tel']) ) {  
             print "<span style='color:red;'>We only accept numeric characters for numbers</span>";
         } 
@@ -10,12 +11,12 @@
      $values['fname'],$values['lname'],
      $values['tel'],$values['gender'],$values['nationality'],
      $values['uname'],$values['email']);      
-    $query = mysqli_query($connection,$stmt) or die("error".mysqli_error($connection));
+    $query = $conn->query($stmt) or die("error".$conn->connect_error);
     if($query){
       print "The User Updated Succesfully";
     }
 
   // }
-function loadCountries($connection){
+function loadCountries($conn){
 }
 ?>

@@ -3,7 +3,7 @@
  
 <?php
 $stmt = "SELECT stk_outgoing.* , stk_users.username FROM stk_outgoing INNER JOIN stk_users ON stk_users.userId = stk_outgoing.userId";
-$query = mysqli_query($connection,$stmt);
+$query = $conn->query($stmt);
 ?>
 
 <table>
@@ -22,7 +22,7 @@ $query = mysqli_query($connection,$stmt);
 
 <?php 
 
-while($row = mysqli_fetch_assoc($query) ){?>
+while($row = $query->fetch() ){?>
 <tbody>
        <tr>
            <td data-label="No"><?=$row['outgoingId']?></td>

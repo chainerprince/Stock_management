@@ -3,7 +3,7 @@
 <?php function showTable(){
     require("../reusable/dbConfig.php");
       $stmt = "SELECT inventory_id, stk_inventory.added_date, product_Name,stk_products.productId, SUM(stk_products.quantity) as TotalQty FROM stk_products INNER JOIN stk_inventory ON stk_products.productId = stk_inventory.productId GROUP BY(product_Name)";
-      $quantity = mysqli_query($connection,$stmt) or die("Error".mysqli_error($connection));
+      $quantity = $conn->query($stmt) or die("Error".$conn->error);
     ?>
 <table>
 <caption>The list of products in the table</caption>
@@ -16,7 +16,7 @@
  </tr>
 </thead>
  <tbody>
-<?php while($row=mysqli_fetch_assoc($quantity)){ ?>
+<?php while($row=$quantity->fetch()){ ?>
    <tr>
     <td data-label="No"><?=$row['inventory_id']?></td>
     <td data-label="Name"><?=$row['product_Name']?></td>
@@ -31,7 +31,7 @@
     require("../reusable/dbConfig.php");
       $stmt = "SELECT outgoingId, stk_outgoing.added_date, product_Name,stk_products.productId, SUM(stk_products.quantity) as TotalQty FROM stk_products INNER JOIN stk_outgoing ON stk_products.productId = stk_outgoing.productId GROUP BY(product_Name)";
 
-      $quantity = mysqli_query($connection,$stmt) or die("Error".mysqli_error($connection));
+      $quantity = $conn->query($stmt) or die("Error".$conn->erro);
     ?>
 <table>
 <caption>The products Taken out of store</caption>
@@ -44,7 +44,7 @@
  </tr>
 </thead>
 <tbody>
-<?php while($row=mysqli_fetch_assoc($quantity)){ ?>
+<?php while($row=$quantity->fetch()){ ?>
    <tr>
     <td data-label="No"><?=$row['outgoingId']?></td>
     <td data-label="Name"><?=$row['product_Name']?></td>
