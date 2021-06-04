@@ -1,6 +1,7 @@
 <?php 
   include "../reusable/dbConfig.php";
   function updateProduct($id,$values,$conn){
+    echo $conn;
             // if (!preg_match ('/^[0-9\-\(\)\/\+\s]*$/', $values['tel']) ) {  
             print "<span style='color:red;'>We only accept numeric characters for numbers</span>";
         } 

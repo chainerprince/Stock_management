@@ -27,21 +27,30 @@
     if($_SESSION['role'] == 1){
         require_once("../reusable/sidebar.php");
     }
+
+
+
+
+
+
+
+
+    
     
      require("../reusable/reports.tot.php") ?>
    
     <main class="main">
         <div class="main__cards">
-        <a href="http://localhost/store-oop/products/dashboard.php#products" class="products">
+        <a href="http://localhost/oop/products/dashboard.php#products" class="products">
         Products : <?=$totalProducts?> Products
             </a>
-             <a href="http://localhost/store-oop/inventory/dashboard.php#products" class="incoming">
+             <a href="http://localhost/oop/inventory/dashboard.php#products" class="incoming">
              Inventory :  <?= $invTotal ?> Products
             </a>
-             <a href="http://localhost/store-oop/out/dashboard.php#products" class="outgoing">
+             <a href="http://localhost/oop/out/dashboard.php#products" class="outgoing">
              Outgoing : <?=$outTotal ?> Products
             </a>
-             <a href="http://localhost/store-oop/users/dashboard.php#products" class="users">
+             <a href="http://localhost/oop/users/dashboard.php#products" class="users">
              store users
             </a>
        
@@ -64,10 +73,15 @@
           <h5>Update User</h5>
           <?php 
           if(isset($_GET['update'])){
-            $id = $_SESSION['userId'];
+            $id = $_GET['update'];
+           
             $data = "SELECT * FROM stk_users WHERE userId= $id";
-            $query = $conn->query($data) or die($conn->error);
-            $row = $query->fetch_array();
+            $query = $conn->query($data) or die($conn->error());
+            // var_dump($query);
+            // echo $id;
+            // var_dump($_SESSION);
+            $row = $query->fetch_assoc();
+            // var_dump($row);
             $country_id = $row['nationality'];
             $countrySql="SELECT * FROM countries WHERE countryId = $country_id;";
             $countries=$conn->query($countrySql);
@@ -98,11 +112,11 @@
       <div class="delete" id="deletes">
           
          <?php 
-          if(isset($_GET['delete'])){
+          if(isset($_GET['deleteId'])){
               echo "<h5>Delete User</h5>";
               $id = $_SESSION['userId'];
               $data = "DELETE  FROM stk_users WHERE userId=$id";
-              $query = $conn->query($data) or die($conn->error);
+              $query = $conn->exec($data) or die($conn->error);
               if($query){
                   print "The User with id $id is deleted succesfully ";
               }else{

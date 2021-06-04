@@ -7,7 +7,7 @@ $stmt1 = "SELECT productId FROM stk_products WHERE product_Name = '$name'";
 $idQry = $conn->query($stmt1) or die("Error ".$conn->error);
 // print(mysqli_num_rows($idQry));
 if($idQry->num_rows> 0){
-    $id = $idQry->fetch_assoc()['productId'];
+    $id = $idQry->fetch()['productId'];
     $stmt = "INSERT INTO stk_outgoing(quantity,productId,userId) VALUES ('$qty','$id','$userId')";
     if($conn->query($stmt)){
         print "<h1 style=' color:green;'> Data inserted Succesfully<h1>";

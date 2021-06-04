@@ -1,6 +1,6 @@
 <?php
   require_once("../reusable/dbConfig.php");
-  $conn = new mysqli($host,$user,$pwd,$db);
+//   $conn = new mysqli($host,$user,$pwd,$db);
   $update = false;
   if(!$conn){
       die("The database connection failed". $conn->connect_error);
@@ -20,7 +20,7 @@
             (product_Name,brand,supplier_phone,supplier,userId)
             VALUES ('$name','$brand','$supplier_phone','$supplier','$userId');
               ";
-             $query_res = $conn->query($query);
+             $query_res = $conn->exec($query);
             if($query_res){
                 print "<span style='color:green;'>The query submitted successfully ✔️✔️✔️</span>";
             }else{

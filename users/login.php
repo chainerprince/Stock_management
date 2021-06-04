@@ -25,7 +25,7 @@ if($query->num_rows<1){
     echo "<p>Invalid Login</p>";
 }
 else{
-    $row=$query->fetch_assoc();
+    $row=$query->fetch();
     //hashing given password
     $hashpswd=hash("sha512",$password);
     //comparing two password
@@ -42,7 +42,7 @@ else{
          $_SESSION['userId'] = $userId;        
          require("platform.php");
          $stmt = "INSERT INTO platform(mac_adress,ip_adress,OS,Browser,userId) VALUES('$MAC','$ip_address','$operating_system','$user_browser',$userId)";
-         $query = $conn->query($stmt) or die($conn->error);
+         $query = $conn->exec($stmt) or die($conn->error);
          if($query){
             null;
          }else{

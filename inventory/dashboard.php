@@ -27,25 +27,25 @@
    
     <main class="main">
         <div class="main__cards">
-        <a href="http://localhost/store-oop/products/dashboard.php#products" class="products">
+        <a href="http://localhost/oop/products/dashboard.php#products" class="products">
         Products : <?=$totalProducts?> Products
             </a>
          
    
          
-             <a href="http://localhost/store-oop/inventory/dashboard.php#products" class="incoming">
+             <a href="http://localhost/oop/inventory/dashboard.php#products" class="incoming">
              Inventory :  <?= $invTotal ?> Products
             </a>
                   
       
          
-             <a href="http://localhost/store-oop/out/dashboard.php#products" class="outgoing">
+             <a href="http://localhost/oop/out/dashboard.php#products" class="outgoing">
              Outgoing : <?=$outTotal ?> Products
             </a>
                 
        
 
-             <a href="http://localhost/store-oop/users/dashboard.php#products" class="users">
+             <a href="http://localhost/oop/users/dashboard.php#products" class="users">
              store users
             </a>
        
@@ -65,7 +65,7 @@
  
  $products = $conn->query($stmt2) or die("Error. " . $conn->error);
  echo "<table> <tr> <th> product name </th> ";
- while($row = $products->fetch_assoc()){
+ while($row = $products->fetch()){
     echo "<tr> <td data-label='Name'> ".$row['product_Name'] . "</td> </tr>";
  }
   echo "</table>";
@@ -85,7 +85,7 @@
             $id = $_GET['id'];
             $data = "SELECT * FROM stk_inventory WHERE inventory_id=$id";
             $query = $conn->query($data);
-            $row = $query->fetch_array();
+            $row = $query->fetch();
             $money = "something";
           
             if(isset($_POST['update'])){

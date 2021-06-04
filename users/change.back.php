@@ -17,7 +17,7 @@ if($exe->num_rows==0){
 else{
    $hashed=hash("SHA512",$newPassword);
    $updateQuery="update stk_users set password='$hashed' WHERE userId='$userid'";
-$execute=$conn->query($updateQuery);
+$execute=$conn->exec($updateQuery);
 if($execute){
    echo "Changed succesfully";
 }}}

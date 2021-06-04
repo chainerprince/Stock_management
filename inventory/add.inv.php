@@ -6,7 +6,7 @@ $stmt1 = "SELECT productId FROM stk_products WHERE product_Name = '$name'";
 $idQry = $conn->query($stmt1) or die("Error ".$conn->error);
 // print(mysqli_num_rows($idQry));
 if($idQry->num_rows> 1){
-    $id = $idQry->fetch_assoc()['productId'];
+    $id = $idQry->fetch()['productId'];
     $userId = $_SESSION['userId'];
     $stmt = "INSERT INTO stk_inventory(quantity,productId,userId) VALUES ('$qty','$id','$userId')";
     if($conn->query($stmt)){

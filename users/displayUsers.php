@@ -56,7 +56,7 @@ tr:hover{
 
     </thead>
    
-    <?php while($row =$query->fetch_assoc()){ ?> 
+    <?php while($row =$query->fetch()){ ?> 
         <tbody>
         <tr>
         <td><?=$row["userId"] ?></td>
@@ -70,14 +70,14 @@ tr:hover{
             <td data-label="Email"><?=$row["email"] ?></td>
             <td data-label="Date"><?=substr($row["added_time"],0,10) ?></td>
             <td data-label="Update">
-                <a href="./dashboard.php?update=true#update">Update</a>
+                <a href="./dashboard.php?update=<?=$row['userId']?>#update">Update</a>
                 <?php 
                 
                 
                 ?>
             </td>
             <td data-label="delete">
-                <a href="./dashboard.php?delete=true#deletes">Delete</a>
+                <a href="./dashboard.php?deleteId=<?=$row['userId']?>#deletes">Delete</a>
             </td>
             
         </tr>

@@ -19,7 +19,7 @@ $query = $conn->query($stmt) or die($conn->connect_error);
 <tbody>
 
 <?php
-while($row = $query->fetch_assoc()){?>
+while($row = $query->fetch()){?>
      <tr>
       <td><?=$row['username']?></td>
       <td><?=$row['browser']?></td>

@@ -21,7 +21,7 @@
     <label for="productId">Product Name</label>
     <select name="pro_name" id="id">
     <?php
-     while($row=$query->fetch_assoc()){
+     while($row=$query->fetch()){
        ?>
    <option value="<?=$row['productId']?>"><?=$row['product_Name']?></option>
     <?php }

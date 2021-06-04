@@ -41,22 +41,22 @@
     <main class="main">
         <div class="main__cards">
  
-         <a href="http://localhost/store-oop/products/dashboard.php#products" class="products">
+         <a href="http://localhost/oop/products/dashboard.php#products" class="products">
          Products : <?=$totalProducts?> Products
             </a>
          
    
          
-             <a href="http://localhost/store-oop/inventory/dashboard.php#products" class="incoming">
+             <a href="http://localhost/oop/inventory/dashboard.php#products" class="incoming">
              Inventory :  <?= $invTotal ?> Products
             </a>
                   
       
          
-             <a href="http://localhost/store-oop/out/dashboard.php#products" class="outgoing">
+             <a href="http://localhost/oop/out/dashboard.php#products" class="outgoing">
              Outgoing : <?=$outTotal ?> Products
             </a>
-             <a href="http://localhost/store-oop/users/dashboard.php#products" class="users">
+             <a href="http://localhost/oop/users/dashboard.php#products" class="users">
              store users
             </a>
         </div>
@@ -77,7 +77,7 @@
             $id = $_GET['id'];
             $data = "SELECT * FROM stk_products WHERE productId=$id";
             $query = $conn->query($data);
-            $row = $query->fetch_array();
+            $row = $query->fetch();
             if(isset($_POST['update'])){
                 include "./products/updateProducts.php";
                 updateProduct($id,$_POST,$conn);
@@ -99,7 +99,7 @@
           if(isset($_GET['deleteId'])){
               $id = $_GET['deleteId'];
               $data = "DELETE  FROM stk_products WHERE productId=$id";
-              $query = $conn->query($data);
+              $query = $conn->exec($data);
               if($query){
                   print "The product with id $id is deleted succesfully ";
               }else{

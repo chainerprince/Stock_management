@@ -26,10 +26,10 @@
 
 </thead>
 <?php 
-$row =$query->fetch_assoc();
+$row =$query->fetch();
 // var_dump($row);
 ?>
-    <?php while($row = $query->fetch_assoc()){ 
+    <?php while($row = $query->fetch()){ 
         //   var_dump($row);
         ?> 
        <tbody>

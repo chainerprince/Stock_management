@@ -16,7 +16,7 @@
  </tr>
 </thead>
  <tbody>
-<?php while($row=$quantity->fetch_assoc()){ ?>
+<?php while($row=$quantity->fetch()){ ?>
    <tr>
     <td data-label="No"><?=$row['inventory_id']?></td>
     <td data-label="Name"><?=$row['product_Name']?></td>
@@ -44,7 +44,7 @@
  </tr>
 </thead>
 <tbody>
-<?php while($row=$quantity->fetch_assoc()){ ?>
+<?php while($row=$quantity->fetch()){ ?>
    <tr>
     <td data-label="No"><?=$row['outgoingId']?></td>
     <td data-label="Name"><?=$row['product_Name']?></td>

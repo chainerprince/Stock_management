@@ -22,7 +22,7 @@ $query = $conn->query($stmt);
 
 <?php 
 
-while($row = $query->fetch_assoc() ){?>
+while($row = $query->fetch() ){?>
 <tbody>
        <tr>
            <td data-label="No"><?=$row['outgoingId']?></td>
